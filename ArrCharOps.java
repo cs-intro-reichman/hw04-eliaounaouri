@@ -207,40 +207,15 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-// Since we assume inputs are non-empty and error-free,
-		// we don't need to return -2 or check for null/empty.
-
-		int len1 = str1.length();
-		int len2 = str2.length();
-		int minLen = Math.min(len1, len2);
-
-		// Compare characters up to the length of the shorter string.
-		for (int i = 0; i < minLen; i++) {
-			char char1 = str1.charAt(i);
-			char char2 = str2.charAt(i);
-
-			if (char1 != char2) {
-				// Rule 1: Strings differ at this position.
-				// The comparison is based on the numeric Unicode values of the characters.
-				if (char1 < char2) {
-					return -1; // str1 is less than str2
-				} else {
-					return 1; // str1 is greater than str2
-				}
-			}
-		}
-
-		// All characters up to minLen match. Now, compare lengths.
-		if (len1 < len2) {
-			// Rule 2: str1 is shorter but is a prefix of str2.
-			return -1;
-		} else if (len1 > len2) {
-			// Rule 2 (reverse): str2 is shorter and is a prefix of str1.
-			return 1;
-		} else {
-			// Rule 3: Lengths are equal, and all characters matched.
-			return 0;
-		}
-
+        // Replace the following statement with your code
+        if (str1.length() == 0 || str2.length() == 0) return -2;
+        if (str1.length() < str2.length()) return -1;
+        if (str2.length() < str1.length()) return 1;
+        for (int i = 0; i <str1.length(); i++)
+        {
+            if (str1.charAt(i) < str2.charAt(i)) return -1;
+            if (str1.charAt(i) > str2.charAt(i)) return 1;
+        }
+        return 0;
     }
 }
